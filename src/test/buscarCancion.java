@@ -28,8 +28,11 @@ public class buscarCancion extends BaseTest {
 		validarHomePage();
 		buscarArtista(artistName);
 		validarArtistaTopResult(artistName);
+		followArtist();
 		cerrarBrowser();	
 	}
+	
+	
 
 	
 	

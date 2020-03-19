@@ -11,17 +11,24 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import PageObjects.SinatraHomePage;
+import PageObjects.SinatraLoginPage;
+
 public class BaseTest {
 
 	protected WebDriver driver;
 	protected WebDriverWait wait;
+	
+	protected SinatraHomePage home;// = new SinatraHomePage();
+	protected SinatraLoginPage login; // = new SinatraLoginPage();
 	
 	@Before
 	public void setUp() {
 		
 		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-		
+		home = new SinatraHomePage(driver);
+		login = new SinatraLoginPage(driver);
 	}
 	
 	@After
@@ -87,8 +94,16 @@ public class BaseTest {
 	protected void validarArtistaTopResult(String artistName) {
 		// TODO Auto-generated method stub
 		
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a [@title='"+artistName+"']")));//concatenar una variable en xpath
+		WebElement selectArtist = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a [@title='"+artistName+"']")));//concatenar una variable en xpath
+		selectArtist.click();
+	}
+	protected void followArtist() {
+		// TODO Auto-generated method stub
 		
+		WebElement follow = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//button [contains (text(), \"Follow\")]")));
+		follow.click();
+		
+		System.out.println("Following");
 	}
 	protected void cerrarBrowser() {
 		driver.quit();
