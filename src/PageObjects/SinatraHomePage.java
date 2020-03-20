@@ -1,13 +1,10 @@
 package PageObjects;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
-import junit.framework.Assert;
 
 public class SinatraHomePage extends BasePage {
 	
@@ -37,8 +34,6 @@ public class SinatraHomePage extends BasePage {
 		}
 
 		public void verifyWelcomeMessage() {
-			WebElement mensajeBienvenida = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("flash")));
-			Assert.assertEquals("You are now logged in as frank", mensajeBienvenida.getText());
 			
 		}
 }

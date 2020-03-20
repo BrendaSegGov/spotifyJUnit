@@ -8,6 +8,7 @@ import PageObjects.SinatraLoginPage;
 import junitparams.FileParameters;
 import junitparams.JUnitParamsRunner;
 
+
 @RunWith(JUnitParamsRunner.class)
 public class ImdbJUnitPomTests extends BaseTest {
 
